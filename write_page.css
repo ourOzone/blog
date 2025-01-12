@@ -14,3 +14,33 @@
     line-height: 30px;
     cursor: pointer;
 }
+
+.line {
+    background-color: antiquewhite;
+    display: flex;
+}
+
+.block {
+    display: flex;           /* flex로 가로 정렬 */
+    flex-direction: row;     /* 기본 방향이므로 명시적으로 설정 */
+    overflow: hidden;        /* 넘치는 부분은 잘리도록 설정 */
+    margin: 0;
+    background-color: red;
+    height: 100px;
+    width: 100px;            /* 가로 크기 지정 */
+}
+
+.block div {
+    width: 100px;            /* 각 div의 너비 설정 */
+    height: 100px;           /* 각 div의 높이 설정 */
+    background-color: lightblue;
+    margin-right: 5px;       /* div 간 간격 */
+}
+
+input {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0;
+    height: 100%;
+    padding: 0;
+}
