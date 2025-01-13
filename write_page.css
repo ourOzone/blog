@@ -17,6 +17,10 @@
 
 .line {
     background-color: antiquewhite;
+    cursor: pointer;
+}
+
+.block_container {
     display: flex;
 }
 
@@ -25,9 +29,8 @@
     flex-direction: row;     /* 기본 방향이므로 명시적으로 설정 */
     overflow: hidden;        /* 넘치는 부분은 잘리도록 설정 */
     margin: 0;
-    background-color: red;
     height: 100px;
-    width: 100px;            /* 가로 크기 지정 */
+    width: 300px;            /* 가로 크기 지정 */
 }
 
 .block div {
@@ -37,10 +40,17 @@
     margin-right: 5px;       /* div 간 간격 */
 }
 
-input {
+textarea {
     display: inline-block;
-    white-space: nowrap;
+    white-space: pre-line;
     margin: 0;
     height: 100%;
     padding: 0;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+}
+
+textarea:focus {
+    border: 0;
 }
