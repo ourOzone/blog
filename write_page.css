@@ -30,15 +30,11 @@
     overflow: hidden;        /* 넘치는 부분은 잘리도록 설정 */
     margin: 0;
     height: 100px;
-    width: 300px;            /* 가로 크기 지정 */
+    width: 100%;            /* 가로 크기 지정 */
+    background-color: lightblue;
+    position: relative;
 }
 
-.block div {
-    width: 100px;            /* 각 div의 너비 설정 */
-    height: 100px;           /* 각 div의 높이 설정 */
-    background-color: lightblue;
-    margin-right: 5px;       /* div 간 간격 */
-}
 
 textarea {
     display: inline-block;
@@ -53,4 +49,35 @@ textarea {
 
 textarea:focus {
     border: 0;
+}
+
+.txtButton {
+    margin-left: auto;
+}
+
+.menuButton {
+    padding: 2px;
+    margin-right: 7px;
+    background-color: aqua;
+    width: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+}
+
+.blockButton {
+    display: inline-block;
+    margin: 3px;
+    background-color: aliceblue;
+    width: 40px;
+    text-align: center;
+}
+
+.buttonConatainer {
+    position: absolute;
+    top: 0;
+    background-color: red;
 }

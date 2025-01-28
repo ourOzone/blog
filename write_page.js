@@ -9,7 +9,6 @@ function add_new_line() {
     
     const menu = document.createElement("div");
     menu.className = "menu"
-    menu.textContent = "여기에 메뉴바가 들어가요(글 수정모드, 너비/위치 조작모드, 블럭 추가, 라인 삭제)";
 
     const block_container = document.createElement("div");
     block_container.className = "block_container";
@@ -19,9 +18,29 @@ function add_new_line() {
     const line_id = "" + id_cnt;
     line.id = "" + line_id;
     const block_container_id = "b" + line_id;
-
     block_container.id = block_container_id;
-    menu.onclick = () => add_block(block_container_id, "text");
+
+    const txtButton = document.createElement("div");
+    txtButton.className = "txtButton";
+    txtButton.classList.add("menuButton");
+    txtButton.textContent = "txt";
+    txtButton.onclick = () => add_block(block_container_id, "text");
+
+    const imgButton = document.createElement("div");
+    imgButton.className = "imgButton";
+    imgButton.classList.add("menuButton");
+    imgButton.textContent = "img";
+
+    const delButton = document.createElement("div");
+    delButton.className = "delButton";
+    delButton.classList.add("menuButton");
+    delButton.textContent = "del";
+    delButton.onclick = () => deleteLine(line_id);
+
+    menu.append(txtButton);
+    menu.append(imgButton);
+    menu.append(delButton);
+
     line.append(menu);
 
     line.append(block_container);
@@ -39,7 +58,7 @@ function add_block(id, type) {
     block.id = block_id;
     
     if (type == "text") {
-        const text = document.createElement("textarea");
+        const text = createTextArea(block_id);
         block.append(text);
     }
 
@@ -47,6 +66,39 @@ function add_block(id, type) {
     line.append(block);
 
 }
+
+function createTextArea (id) {
+
+    const textArea = document.createElement("div");
+    
+    const txt = document.createElement("textarea");
+
+    const aliginButton = document.createElement("div");
+    aliginButton.className = "aliginButton";
+    aliginButton.classList.add("blockButton");
+    aliginButton.textContent = "정렬";
+
+    const delButton = document.createElement("div");
+    delButton.className = "blockDelButton";
+    delButton.classList.add("blockButton");
+    delButton.textContent = "X";
+    delButton.onclick = () => {
+        const del = document.getElementById(id);
+        del.remove();
+    }
+
+    const buttonConatainer = document.createElement("div");
+    buttonConatainer.className = "buttonConatainer";
+    buttonConatainer.append(aliginButton);
+    buttonConatainer.append(delButton);
+
+    textArea.append(txt);
+    textArea.append(buttonConatainer);
+
+    return textArea;
+
+}
+
 
 function submit_write() {
     const lines = document.getElementsByClassName("line");
@@ -69,4 +121,9 @@ function submit_write() {
 
     console.log(blocks_value);
     return blocks_value;
+}
+
+function deleteLine (id) {
+    const del = document.getElementById(id);
+    del.remove();
 }
