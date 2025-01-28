@@ -52,7 +52,6 @@ function add_block(id, type) {
     const mother_line = document.getElementById(id);
     const child_cnt = mother_line.childElementCount;
     const block_id = id + "t" + child_cnt;
-
     const block = document.createElement("div");
     block.className = "block";
     block.id = block_id;
@@ -68,22 +67,23 @@ function add_block(id, type) {
 }
 
 function createTextArea (id) {
-
+    const del = document.getElementById(id);
     const textArea = document.createElement("div");
     
     const txt = document.createElement("textarea");
-
+    const writer = document.getElementById("writer");
+    console.log(txt.offsetWidth, writer.offsetWidth);
+    txt.style.width = "" + (writer.offsetWidth) + "px";
     const aliginButton = document.createElement("div");
     aliginButton.className = "aliginButton";
     aliginButton.classList.add("blockButton");
-    aliginButton.textContent = "정렬";
+    aliginButton.textContent = "A";
 
     const delButton = document.createElement("div");
     delButton.className = "blockDelButton";
     delButton.classList.add("blockButton");
     delButton.textContent = "X";
     delButton.onclick = () => {
-        const del = document.getElementById(id);
         del.remove();
     }
 
@@ -101,6 +101,7 @@ function createTextArea (id) {
 
 
 function submit_write() {
+    const title = document.getElementById('title_input');
     const lines = document.getElementsByClassName("line");
     const linesArray = Array.from(lines);
 
@@ -112,18 +113,19 @@ function submit_write() {
         const blocks = Array.from(block_container.children);
 
         blocks.forEach((e) => {
-            const value = e.children[0].value;
+            const value = e.children[0].children[0].value;
             temp.push(value)
         })
         blocks_value.push(temp);
         
     });
 
-    console.log(blocks_value);
-    return blocks_value;
+    
+    return [title.value, blocks_value];
 }
 
 function deleteLine (id) {
     const del = document.getElementById(id);
     del.remove();
 }
+

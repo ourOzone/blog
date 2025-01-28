@@ -5,16 +5,23 @@ function load_intro_page() {
 
     const header = document.createElement("header");
     header.className = "intro_header";
-    header.textContent = "고민재의 블로그에요 초안이라 조금 조잡해요";
+    header.textContent = "고민재의 블로그에요";
 
     const login_button = document.createElement("button");
     login_button.className = "login_button";
     login_button.textContent = "로그인을 해요";
     login_button.onclick = load_login_page ;
 
-    main_container.append(header);
-    main_container.append(login_button);
+    const main_page_button = document.createElement("button");
+    main_page_button.className = "main_button";
+    main_page_button.textContent = "읽기만 할게요"
+    main_page_button.onclick = load_main_page;
 
+
+
+    main_container.append(header);
+    main_container.append(main_page_button);
+    main_container.append(login_button);
 }
 
 function load_login_page() {
@@ -45,8 +52,14 @@ function load_login_page() {
     main_container.append(header);
     main_container.append(form);
 }
+
 function temp() {
     location.href = 'write_page.html';
 }
 
+function load_main_page () {
+    location.href = "articles.html";
+}
+
 load_intro_page();
+

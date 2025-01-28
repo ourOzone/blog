@@ -1,0 +1,10 @@
+#main_container {
+    background-color: burlywood;
+    text-align: center;
+    width: 80%;
+    margin: auto;  
+}
+
+.intro_header {
+    padding: 20px;
+}
