@@ -67,7 +67,8 @@ function add_block(id, type) {
 }
 
 function createTextArea (id) {
-    const del = document.getElementById(id);
+ 
+
     const textArea = document.createElement("div");
     
     const txt = document.createElement("textarea");
@@ -84,6 +85,7 @@ function createTextArea (id) {
     delButton.classList.add("blockButton");
     delButton.textContent = "X";
     delButton.onclick = () => {
+        const del = document.getElementById(id);
         del.remove();
     }
 
@@ -101,7 +103,7 @@ function createTextArea (id) {
 
 
 function submit_write() {
-    const title = document.getElementById('title_input');
+    const title = document.getElementsByClassName('title_input')[0];
     const lines = document.getElementsByClassName("line");
     const linesArray = Array.from(lines);
 
@@ -120,7 +122,6 @@ function submit_write() {
         
     });
 
-    
     return [title.value, blocks_value];
 }
 
